@@ -17,7 +17,11 @@ class UserForm extends Component {
 
   handleChange = event => {};
 
-  handleSubmit = event => {};
+  handleSubmit = event => {
+    fetch('https://jsonplaceholder.typicode.com/posts/1')
+      .then(response => response.json())
+      .then(json => console.log(json));
+  };
 
   render() {
     const { firstName, lastName, age, hobbies } = this.state.user;
