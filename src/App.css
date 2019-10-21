@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -19,4 +19,39 @@
 
 .App-link {
   color: #09d3ac;
+} */
+
+/* ***********************  */
+#heading {
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(66, 125, 212);
+  border-bottom: solid 2px rgb(66, 125, 212);
+  padding-bottom: 1rem;
+}
+.user-form {
+  width: 45%;
+  margin: 1em auto;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: -2px 8px 17px 11px rgba(169, 158, 158, 0.47);
+  -webkit-box-shadow: -2px 8px 17px 11px rgba(169, 158, 158, 0.47);
+  -moz-box-shadow: -2px 8px 17px 11px rgba(169, 158, 158, 0.47);
+}
+
+form label {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(66, 125, 212);
+}
+
+form button {
+  width: 5rem;
+}
+
+.my-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 2rem;
+  border-top: solid 2px rgb(66, 125, 212);
 }
