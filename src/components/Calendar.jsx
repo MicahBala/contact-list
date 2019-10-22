@@ -1,10 +1,16 @@
 import React from 'react';
 
-function Calendar() {
+function Calendar(props) {
   return (
     <div className="form-group md-col-6">
       <label htmlFor="dob">Date of Birth</label>
-      <input id="dob" type="date" className="form-control" />
+      <input
+        id={props.id}
+        name={props.name}
+        value={props.value}
+        type="date"
+        className={props.className}
+      />
     </div>
   );
 }

@@ -1,10 +1,11 @@
 import React from 'react';
 import UserTable from './UserTable';
+import UserForm from './UserForm';
 
 function UserList() {
   return (
     <div className="user-list">
-      <h3 id="heading">User List</h3>
+      <UserForm />
       <UserTable />
     </div>
   );

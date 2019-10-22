@@ -1,30 +1,31 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class UserTable extends Component {
   constructor() {
     super();
     this.state = {
-      user: []
+      contact: []
     };
   }
 
-  componentDidMount() {
-    // fetch('userData.json')
-    //   .then(response => response.json())
-    //   .then(data => {
-    //     this.setState({
-    //       user: data
-    //     });
-    //   })
-    //   .catch(error => console.log(error));
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  async componentDidMount() {
+    const { data: contact } = await axios.get('http://localhost:4000/contact');
+    this.setState({
+      contact
+    });
   }
 
   renderTable() {
-    return this.state.user.map((user, index) => {
-      const { id, firstName, lastName, age, dob, hobbies } = user;
+    return this.state.contact.map((contact, index) => {
+      const { id, firstName, lastName, age, dob, hobbies } = contact;
       return (
         <tr key={id}>
-          <th scope="row">{id}</th>
+          {/* <th scope="row">{id}</th> */}
           <td>{firstName}</td>
           <td>{lastName}</td>
           <td>{age}</td>
@@ -37,19 +38,21 @@ class UserTable extends Component {
 
   render() {
     return (
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Age</th>
-            <th scope="col">Date of Birth</th>
-            <th scope="col">Hobbies</th>
-          </tr>
-        </thead>
-        <tbody>{this.renderTable()}</tbody>
-      </table>
+      <div>
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              {/* <th scope="col">#</th> */}
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Date of Birth</th>
+              <th scope="col">Hobbies</th>
+            </tr>
+          </thead>
+          <tbody>{this.renderTable()}</tbody>
+        </table>
+      </div>
     );
   }
 }

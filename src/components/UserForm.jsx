@@ -1,30 +1,41 @@
 import React, { Component } from 'react';
-import Calendar from './Calendar';
+import axios from 'axios';
+// import Calendar from './Calendar';
 
 class UserForm extends Component {
   constructor() {
     super();
     this.state = {
-      user: {
-        firstName: '',
-        lastName: '',
-        age: '',
-        // dob: '',
-        hobbies: ''
-      }
+      firstName: '',
+      lastName: '',
+      age: '',
+      dob: '',
+      hobbies: ''
     };
   }
 
-  handleChange = event => {};
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   handleSubmit = event => {
-    fetch('https://jsonplaceholder.typicode.com/posts/1')
-      .then(response => response.json())
-      .then(json => console.log(json));
+    event.preventDefault();
+    const { firstName, lastName, age, dob, hobbies } = this.state;
+    axios
+      .post('http://localhost:4000/contact', {
+        firstName,
+        lastName,
+        age,
+        dob,
+        hobbies
+      })
+      .then(res => console.log(res.data));
+
+    // console.log(this.state);
   };
 
   render() {
-    const { firstName, lastName, age, hobbies } = this.state.user;
+    const { firstName, lastName, age, dob, hobbies } = this.state;
     return (
       <div className="user-form">
         <h3 id="heading">Create a user</h3>
@@ -32,6 +43,7 @@ class UserForm extends Component {
           <div className="form-group">
             <label htmlFor="firstname">First Name</label>
             <input
+              autoFocus
               id="firstname"
               name="firstName"
               value={firstName}
@@ -63,7 +75,17 @@ class UserForm extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <Calendar />
+            <div className="form-group md-col-6">
+              <label htmlFor="dob">Date of Birth</label>
+              <input
+                id="dob"
+                name="dob"
+                value={dob}
+                type="date"
+                className="form-control"
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
           <div className="form-group">
             <label htmlFor="userhobby">Hobbies</label>

@@ -1,16 +1,28 @@
-[
-  {
-    "id": 1,
-    "firstName": "Micah",
-    "lastName": "Bala",
-    "age": 33,
-    "hobbies": "reading"
-  },
-  {
-    "id": 2,
-    "firstName": "Joseph",
-    "lastName": "Isa'ac",
-    "age": 25,
-    "hobbies": "jogging"
-  }
-]
+{
+  "contact": [
+    {
+      "id": "1",
+      "firstName": "Micah",
+      "lastName": "Bala",
+      "age": "22",
+      "dob": "2019-10-15",
+      "hobbies": "reading"
+    },
+    {
+      "firstName": "Sam",
+      "lastName": "Pat",
+      "age": "33",
+      "dob": "2019-10-15",
+      "hobbies": "reading",
+      "id": "_BXqyxO"
+    },
+    {
+      "firstName": "Joshua",
+      "lastName": "Bala",
+      "age": "21",
+      "dob": "2019-05-21",
+      "hobbies": "reading",
+      "id": "pTjDpaI"
+    }
+  ]
+}
